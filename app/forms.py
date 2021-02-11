@@ -6,3 +6,4 @@ from wtforms.validators import DataRequired, ValidationError
 
 class UsernameForm(FlaskForm):
     username = StringField('Username: ', validators=[DataRequired()])
+    username2 = StringField('Username2: ', validators=[DataRequired()])
