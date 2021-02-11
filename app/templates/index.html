@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+{% extends "base.html" %}
+{% block content %}
 <body>
+<form action="/compare.html">
+    <p>
+    <label for="platform">Choose a platform:</label>
 
+    <select name="platform" id="platform">
+        <option value="xbl">Xbox</option>
+        <option value="steam">Steam</option>
+        <option value="psn">Playstation</option>
+    </select>
+    </p>
+
+    <input type="submit">
+</form>
 </body>
-</html>
+{% endblock %}
