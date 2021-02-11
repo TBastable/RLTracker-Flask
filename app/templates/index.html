@@ -1,37 +1,34 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 {% block content %}
+<head><title>Rocket League Stats Comparator</title></head>
+
 <body>
-<form action="" method="POST">
+<form action="" method="POST" role="form">
     <p>
-    <div class="input text">
+    <div class="form-group">
         {{ form.username.label }}
         {{ form.username(size=32) }}
     </div>
-    <label for="platform">Choose a platform:</label>
-
-    <select name="platform" id="platform">
-        <option value="xbl">Xbox</option>
-        <option value="steam">Steam</option>
-        <option value="psn">Playstation</option>
-    </select>
+    <div class="form-group">
+        {{ form.platform.label }}
+        {{ form.platform }}
+    </div>
     </p>
     <p>
-    <div class="input text">
+    <div class="form-group">
         {{ form.username2.label }}
         {{ form.username2(size=32) }}
     </div>
-    <label for="platform2">Choose a platform:</label>
-
-    <select name="platform2" id="platform2">
-        <option value="xbl">Xbox</option>
-        <option value="steam">Steam</option>
-        <option value="psn">Playstation</option>
-    </select>
+    <div class="form-group">
+        {{ form.platform2.label }}
+        {{ form.platform2 }}
+    </div>
     </p>
     <p>
 
     </p>
-    <input type="submit">
+    <button type="submit" class="btn btn-success">Submit</button>
 </form>
 </body>
 {% endblock %}

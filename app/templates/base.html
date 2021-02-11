@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Rocket League - Compare Stats</title>
-</head>
+{% extends 'bootstrap/base.html' %}
+
+<title>Rocket League Stats Comparator</title>
+
 <body>
 {% with messages = get_flashed_messages() %}
 {% if messages %}
+
 <ul>
     {% for message in messages %}
     <li>{{ message }}</li>
@@ -16,5 +15,7 @@
 {% endwith %}
 
     {% block content %}{% endblock %}
+
 </body>
+</div>
 </html>
