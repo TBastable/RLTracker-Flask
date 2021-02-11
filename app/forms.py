@@ -9,3 +9,4 @@ class UsernameForm(FlaskForm):
     username2 = StringField('Username2: ', validators=[DataRequired()])
     platform = SelectField('Platform', choices=["Xbox", "Steam", "Playstation"])
     platform2 = SelectField('Platform2', choices=["Xbox", "Steam", "Playstation"])
+    submit = SubmitField('Submit')
