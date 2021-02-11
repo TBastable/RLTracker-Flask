@@ -1,8 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 <body>
-<form action="/compare.html">
+<form action="" method="POST" novalidate>
     <p>
+    <div class="input text">
+        {{ form.username.label }}
+        {{ form.username(size=32) }}
+    </div>
+    <div class="input submit">
+            <input type="submit" value="Submit">
+    </div>
     <label for="platform">Choose a platform:</label>
 
     <select name="platform" id="platform">
@@ -24,3 +31,6 @@
 </form>
 </body>
 {% endblock %}
+
+
+</form>
