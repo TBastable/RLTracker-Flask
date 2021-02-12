@@ -21,37 +21,35 @@
         <td>Lifetime Wins</td>
     </tr>
     <tr>
+        <td>Goals</td>
+        <td>{{ player1.goals }}</td>
+        <td>{{ player2.goals }}</td>
+        <td>Goals</td>
+    </tr>
+    <tr>
+        <td>Saves</td>
+        <td>{{ player1.saves }}</td>
+        <td>{{ player2.saves }}</td>
+        <td>Saves</td>
+    </tr>
+    <tr>
+        <td>Assists</td>
+        <td>{{ player1.assists }}</td>
+        <td>{{ player2.assists }}</td>
+        <td>Assists</td>
+    </tr>
+    <tr>
+        <td>mVP's</td>
+        <td>{{ player1.mvps }}</td>
+        <td>{{ player2.mvps }}</td>
+        <td>mVP's</td>
+    </tr>
+    <tr>
         <td>Goal - shot Ratio</td>
-        <td>{{ player2.goal_shot_ratio }}</td>
+        <td>{{ player1.goal_shot_ratio }}</td>
         <td>{{ player2.goal_shot_ratio }}</td>
         <td>Goal - shot Ratio</td>
-    </tr>
-    <tr>
-        <td>Ernst Handel</td>
-        <td>Roland Mendel</td>
-        <td>Austria</td>
-        <td>Austria</td>
-    </tr>
-    <tr>
-        <td>Island Trading</td>
-        <td>Helen Bennett</td>
-        <td>UK</td>
-        <td>UK</td>
-    </tr>
-    <tr>
-        <td>Laughing Bacchus Winecellars</td>
-        <td>Yoshi Tannamuri</td>
-        <td>Canada</td>
-        <td>Canada</td>
-    </tr>
-    <tr>
-        <td>Magazzini Alimentari Riuniti</td>
-        <td>Giovanni Rovelli</td>
-        <td>Italy</td>
-        <td>Italy</td>
     </tr>
 </table>
-{{ player2.username }}
-{{ player2.lifetime_wins }}
 </body>
 {% endblock %}

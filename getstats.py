@@ -8,10 +8,15 @@ class PlayerStats:
                  season_name=None,
                  lifetime_wins=None,
                  lifetime_win_rank=None,
+                 mvps=None,
                  goal_shot_ratio=None,
                  season_reward=None,
                  game_data=None,
-                 match_info=None
+                 match_info=None,
+                 goals=None,
+                 saves=None,
+                 shots=None,
+                 assists=None
                  ):
         self.platform = platform
         self.username = username
@@ -22,6 +27,11 @@ class PlayerStats:
         self.season_reward = season_reward
         self.game_data = game_data
         self.match_info = match_info
+        self.mvps = mvps
+        self.goals = goals
+        self.saves = saves
+        self.shots = shots
+        self.assists = assists
 
     @staticmethod
     def generate_response(username, platform):
@@ -43,6 +53,11 @@ class PlayerStats:
         self.username = raw_response_data['platformInfo']['platformUserHandle']
         self.season_name = raw_response_data['metadata']['currentSeason']
         self.lifetime_wins = raw_response_data['segments'][0]['stats']['wins']['displayValue']
+        self.mvps = raw_response_data['segments'][0]['stats']['mVPs']['displayValue']
+        self.goals = raw_response_data['segments'][0]['stats']['goals']['displayValue']
+        self.saves = raw_response_data['segments'][0]['stats']['saves']['displayValue']
+        self.shots = raw_response_data['segments'][0]['stats']['shots']['displayValue']
+        self.assists = raw_response_data['segments'][0]['stats']['assists']['displayValue']
         self.lifetime_win_rank = raw_response_data['segments'][0]['stats']['wins']['rank']
         self.goal_shot_ratio = raw_response_data['segments'][0]['stats']['goalShotRatio']['displayValue']
         self.season_reward = raw_response_data['segments'][0]['stats']['seasonRewardLevel']['metadata'][
@@ -51,7 +66,8 @@ class PlayerStats:
         for i in range(2, 10):
             match = raw_response_data['segments'][i]['stats']['matchesPlayed']['value']
             name = raw_response_data['segments'][i]['metadata']['name']
-            match_dic[name] = match
+            rank = raw_response_data['segments'][i]['metadata']['name']
+            match_dic[name] = (match, rank)
         self.match_info = match_dic
         return
 
@@ -64,4 +80,3 @@ class PlayerStats:
               f"Lifetime wins: {self.lifetime_wins}\n"
               f"Lifetime win rank: {self.lifetime_win_rank}\n"
               f"Lifetime goal to shot ratio: {self.goal_shot_ratio}%")
-
