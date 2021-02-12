@@ -1,8 +1,6 @@
 {% extends "base.html" %}
-{% block content %}
-<head><title>Rocket League Stats Comparator</title></head>
+{% block app_content %}
 
-<body>
 <form action="/compare" method="GET" role="form">
     <div class="form-group">
         {{ form.username.label }}
@@ -23,6 +21,5 @@
     </div>
     {{ form.submit() }}
 </form>
-</body>
 {% endblock %}
 

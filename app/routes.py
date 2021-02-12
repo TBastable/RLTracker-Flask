@@ -9,10 +9,6 @@ from getstats import PlayerStats
 def index():
     form = UsernameForm()
     if request.method == 'POST':
-            username = request.form['username']
-            username2 = request.form['username2']
-            platform = request.form['platform']
-            platform2 = request.form['platform2']
             return redirect(url_for('compare'))
     return render_template('index.html', title='Rocket League Stats', form=form)
 
@@ -30,5 +26,7 @@ def compare():
     account2 = PlayerStats()
     player_stats2 = account1.generate_response(user2, platform2)
     account2.extract_player_stats_from_response(player_stats2)
-    print(account2)
+
     return render_template('compare.html', player1=account1, player2=account2)
+
+
