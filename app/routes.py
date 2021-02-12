@@ -23,10 +23,6 @@ def compare():
     user2 = str.replace(request.args.get("username2")," ","%20")
     platform1 = request.args.get("platform")
     platform2 = request.args.get("platform2")
-    print(user1)
-    print(user2)
-    print(platform1)
-    print(platform2)
 
     account1 = PlayerStats()
     player_stats1 = account1.generate_response(user1, platform1)
@@ -35,4 +31,4 @@ def compare():
     player_stats2 = account1.generate_response(user2, platform2)
     account2.extract_player_stats_from_response(player_stats2)
     print(account2)
-    return render_template('compare.html', player1=account2, player2=account2)
+    return render_template('compare.html', player1=account1, player2=account2)
