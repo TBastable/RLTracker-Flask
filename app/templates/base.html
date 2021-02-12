@@ -1,0 +1,27 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Rocket League Stats{% endblock %}
+<body>
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">RL Stats</a>
+
+    <a class="nav-item nav-link active" href="{{ url_for ('index') }}">Home</a>
+</nav>
+{% endblock %}
+{% block content %}
+<hr>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+    {% block app_content %}{% endblock %}
+
+</body>
+{% endblock %}

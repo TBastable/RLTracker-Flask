@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block app_content %}
+
+<form action="/compare" method="GET" role="form">
+    <div class="form-group">
+        {{ form.username.label }}
+        {{ form.username(size=32) }}
+    </div>
+    <div class="form-group">
+        {{ form.platform.label }}
+        {{ form.platform }}
+    </div>
+
+    <div class="form-group">
+        {{ form.username2.label }}
+        {{ form.username2(size=32) }}
+    </div>
+    <div class="form-group">
+        {{ form.platform2.label }}
+        {{ form.platform2 }}
+    </div>
+    {{ form.submit() }}
+</form>
+{% endblock %}
+
