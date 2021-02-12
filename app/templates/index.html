@@ -1,11 +1,9 @@
 {% extends "base.html" %}
-{% import 'bootstrap/wtf.html' as wtf %}
 {% block content %}
 <head><title>Rocket League Stats Comparator</title></head>
 
 <body>
-<form action="" method="POST" role="form">
-    <p>
+<form action="/compare" method="GET" role="form">
     <div class="form-group">
         {{ form.username.label }}
         {{ form.username(size=32) }}
@@ -14,8 +12,7 @@
         {{ form.platform.label }}
         {{ form.platform }}
     </div>
-    </p>
-    <p>
+
     <div class="form-group">
         {{ form.username2.label }}
         {{ form.username2(size=32) }}
@@ -24,14 +21,8 @@
         {{ form.platform2.label }}
         {{ form.platform2 }}
     </div>
-    </p>
-    <p>
-
-    </p>
-    <button type="submit" class="btn btn-success">Submit</button>
+    {{ form.submit() }}
 </form>
 </body>
 {% endblock %}
 
-
-</form>

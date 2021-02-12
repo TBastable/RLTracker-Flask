@@ -1,9 +1,57 @@
 {% extends "base.html" %}
-{% import 'bootstrap/wtf.html' as wtf %}
 {% block content %}
 <head><title>Rocket League Stats Comparator</title></head>
 
 <body>
-{{ user1 }}
+<table>
+    <tr>
+        <th colspan="2">{{ player1.username }}</th>
+        <th colspan="2">{{ player2.username }}</th>
+    </tr>
+    <tr>
+        <th>Statistics</th>
+        <th>Value</th>
+        <th>Value</th>
+        <th>Statistic</th>
+    </tr>
+    <tr>
+        <td>Lifetime Wins</td>
+        <td>{{ player1.lifetime_wins }}</td>
+        <td>{{ player2.lifetime_wins }}</td>
+        <td>Lifetime Wins</td>
+    </tr>
+    <tr>
+        <td>Goal - shot Ratio</td>
+        <td>{{ player2.goal_shot_ratio }}</td>
+        <td>{{ player2.goal_shot_ratio }}</td>
+        <td>Goal - shot Ratio</td>
+    </tr>
+    <tr>
+        <td>Ernst Handel</td>
+        <td>Roland Mendel</td>
+        <td>Austria</td>
+        <td>Austria</td>
+    </tr>
+    <tr>
+        <td>Island Trading</td>
+        <td>Helen Bennett</td>
+        <td>UK</td>
+        <td>UK</td>
+    </tr>
+    <tr>
+        <td>Laughing Bacchus Winecellars</td>
+        <td>Yoshi Tannamuri</td>
+        <td>Canada</td>
+        <td>Canada</td>
+    </tr>
+    <tr>
+        <td>Magazzini Alimentari Riuniti</td>
+        <td>Giovanni Rovelli</td>
+        <td>Italy</td>
+        <td>Italy</td>
+    </tr>
+</table>
+{{ player2.username }}
+{{ player2.lifetime_wins }}
 </body>
 {% endblock %}

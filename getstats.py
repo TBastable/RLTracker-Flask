@@ -65,4 +65,3 @@ class PlayerStats:
               f"Lifetime win rank: {self.lifetime_win_rank}\n"
               f"Lifetime goal to shot ratio: {self.goal_shot_ratio}%")
 
-

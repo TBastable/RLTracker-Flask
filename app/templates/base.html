@@ -1,8 +1,15 @@
-{% extends 'bootstrap/base.html' %}
-
-<title>Rocket League Stats Comparator</title>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rocket League Stats</title>
+</head>
 <body>
+<div>
+    Rocket League Stats:
+    <a href="{{ url_for ('index') }}">Home</a>
+</div>
+<hr>
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 
@@ -17,5 +24,4 @@
     {% block content %}{% endblock %}
 
 </body>
-</div>
 </html>
