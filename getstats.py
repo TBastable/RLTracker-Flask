@@ -92,12 +92,3 @@ class TrackerAPI:
         raw_response_data = response.json().get("data", {})
         self.raw_response_data = raw_response_data
         return
-
-
-
-response = TrackerAPI('xbl', "UKF WONDERBOY2")
-
-print(response.response)
-
-if not response.response:
-    print(f'Error receiving data for {response.user}. Please check spelling and platform and try again.')
