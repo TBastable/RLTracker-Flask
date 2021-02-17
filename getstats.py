@@ -3,8 +3,9 @@ import requests
 
 class PlayerStats:
     """
-
+        Class to store user statistics based on dictionary file of raw data
     """
+
     def __init__(self,
                  raw_response_data,
                  platform=None,
@@ -22,6 +23,11 @@ class PlayerStats:
                  shots=None,
                  assists=None
                  ):
+        """
+        Initialises creation of all class properties for stats storage.
+        :param raw_response_data: JSON/Dictionary type generated from Tracker.gg API response
+        :param: All other parameters initialised, but generated within a class method
+        """
         self.platform = platform
         self.username = username
         self.season_name = season_name
@@ -39,7 +45,11 @@ class PlayerStats:
         self.raw_response_data = raw_response_data
         self.extract_player_stats_from_response()
 
-    def extract_player_stats_from_response(self):
+    def extract_player_stats_from_response(self) -> None:
+        """
+        From JSON data takes key information on players' stats and stores them as class properties.
+        :return: None
+        """
         platform_dic = {'xbl': 'Xbox Live', 'psn': 'Playstation Network', 'steam': 'Steam'}
         self.platform = platform_dic[self.raw_response_data['platformInfo']['platformSlug']]
         self.username = self.raw_response_data['platformInfo']['platformUserHandle']
@@ -65,11 +75,11 @@ class PlayerStats:
 
 
 class TrackerAPI:
-    def __init__(self, platform, username):
+    def __init__(self, platform: str, username: str) -> None:
         """
-
-        :param platform:
-        :param username:
+        Initialises the class
+        :param platform: Either xbl, steam, psn
+        :param username: Username of player to comapre
         """
         self.platform = platform
         self.user = str.replace(username, " ", "%20")
@@ -77,10 +87,11 @@ class TrackerAPI:
         self.response = None
         self.get_response()
 
-    def get_response(self):
+    def get_response(self) -> None:
         """
-
-        :return:
+        Generates a JSON/Dictionary response from tracker.gg API endpoint. Checks for errors within the API response
+        and stores them within class property response.
+        :return: Stores a dictionary of raw response data and any API response errors
         """
         url = f'https://api.tracker.gg/api/v2/rocket-league/standard/profile/{self.platform}/{self.user}'
         headers = {
