@@ -2,6 +2,9 @@ import requests
 
 
 class PlayerStats:
+    """
+
+    """
     def __init__(self,
                  raw_response_data,
                  platform=None,
@@ -60,19 +63,14 @@ class PlayerStats:
         self.match_info = match_dic
         return
 
-    def tracker_data_print(self):
-        """A simple function for printing results of custom dictionary passed to it"""
-        print(f"These are the Rocket League user stats for {self.username}, playing on {self.platform}\n"
-              f"We are currently playing in Season {self.season_name}, "
-              f"and you will be receiving {self.season_reward} season rewards\n"
-              f"Lifetime stats\n"
-              f"Lifetime wins: {self.lifetime_wins}\n"
-              f"Lifetime win rank: {self.lifetime_win_rank}\n"
-              f"Lifetime goal to shot ratio: {self.goal_shot_ratio}%")
-
 
 class TrackerAPI:
     def __init__(self, platform, username):
+        """
+
+        :param platform:
+        :param username:
+        """
         self.platform = platform
         self.user = str.replace(username, " ", "%20")
         self.raw_response_data = None
@@ -80,6 +78,10 @@ class TrackerAPI:
         self.get_response()
 
     def get_response(self):
+        """
+
+        :return:
+        """
         url = f'https://api.tracker.gg/api/v2/rocket-league/standard/profile/{self.platform}/{self.user}'
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
