@@ -85,7 +85,8 @@ class TrackerAPI:
         Generates a JSON/Dictionary response from tracker.gg API endpoint. Checks for errors within the API response.
         :return: Stores a dictionary of raw response data and any API response errors
         """
-        url = f'https://api.tracker.gg/api/v2/rocket-league/standard/profile/{platform}/{user_id}'
+        user_id_no_space = str.replace(user_id, " ", "%20")
+        url = f'https://api.tracker.gg/api/v2/rocket-league/standard/profile/{platform}/{user_id_no_space}'
         response = requests.get(url, headers=cls.headers)
         response.raise_for_status()
         return response.json().get("data", {})
