@@ -75,33 +75,17 @@ class PlayerStats:
 
 
 class TrackerAPI:
-    def __init__(self, platform: str, username: str) -> None:
-        """
-        Initialises the class
-        :param platform: Either xbl, steam, psn
-        :param username: Username of player to comapre
-        """
-        self.platform = platform
-        self.user = str.replace(username, " ", "%20")
-        self.raw_response_data = None
-        self.response = None
-        self.get_response()
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                      'Chrome/86.0.4240.198 Safari/537.36'}
 
-    def get_response(self) -> None:
+    @classmethod
+    def get_user_profile_data(cls, platform, user_id):
         """
-        Generates a JSON/Dictionary response from tracker.gg API endpoint. Checks for errors within the API response
-        and stores them within class property response.
+        Generates a JSON/Dictionary response from tracker.gg API endpoint. Checks for errors within the API response.
         :return: Stores a dictionary of raw response data and any API response errors
         """
-        url = f'https://api.tracker.gg/api/v2/rocket-league/standard/profile/{self.platform}/{self.user}'
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
-                          'Chrome/86.0.4240.198 Safari/537.36'}
-        response = requests.get(url, headers=headers)
-        if not response.ok:
-            self.response = False
-        else:
-            self.response = True
-        raw_response_data = response.json().get("data", {})
-        self.raw_response_data = raw_response_data
-        return
+        url = f'https://api.tracker.gg/api/v2/rocket-league/standard/profile/{platform}/{user_id}'
+        response = requests.get(url, headers=cls.headers)
+        response.raise_for_status()
+        return response.json().get("data", {})
